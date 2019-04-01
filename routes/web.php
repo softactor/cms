@@ -24,3 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
  * *****************************************************************************
  */
 Route::get('role/list', 'RoleController@index')->name('role_list');
+
+Route::get('admin/create_complain_type', 'ComplainTypeController@create');
+Route::post('admin/store_complain_type', 'ComplainTypeController@store_complain_type');
