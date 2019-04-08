@@ -27,3 +27,4 @@ Route::get('role/list', 'RoleController@index')->name('role_list');
 
 Route::get('admin/create_complain_type', 'ComplainTypeController@create');
 Route::post('admin/store_complain_type', 'ComplainTypeController@store_complain_type');
+Route::get('admin/list_complain_type', 'ComplainTypeController@complain_list');
