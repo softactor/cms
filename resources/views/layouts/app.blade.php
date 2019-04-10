@@ -15,9 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap lib -->
+    <link href="{{ asset('cmsp/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -76,5 +75,9 @@
             @yield('content')
         </main>
     </div>
+    @section('project_js_section')
+    <script src="{{ asset('cmsp/js/jquery-3.3.1.min.js') }}" defer></script>
+    <script src="{{ asset('cmsp/js/bootstrap.min.js') }}" defer></script>
+    @show
 </body>
 </html>

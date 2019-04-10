@@ -65,8 +65,35 @@ class ComplainTypeController extends Controller{
             'pageTitle'     => 'Complain type List',
             'formAction'    => '',
             'redirecturl'   => '',
+            'getEditDayaUrl'=> url('admin/get_complain_type_edit_data'),
         ];
         $list   =   DB::table('complain_type')->get();
         return View('backend.complain_type.list', compact('list', 'pageData'));
+    }
+    
+    public function get_complain_type_edit_data(Request $request){
+        // default param
+        $status     =   'error';
+        $data       =   '';
+        $message    =   'No data found!';
+        
+        // get data from the table with row id
+        $rowData    =   DB::table('complain_type')->where('id', $request->row_id)->first();
+        // check data is available or not
+        if(isset($rowData) && !empty($rowData)){
+            $details_data   =   View::make('backend.partial.complain_type_edit_data', compact('rowData'));
+            $status         =   'success';
+            $data           =   $details_data->render();
+            $message        =   'Data found!';
+        }
+        
+        // 
+        $feedbackData   =   [
+            'status'  => $status,
+            'data'    => $data,
+            'message' => $message
+        ];
+        
+        echo json_encode($feedbackData);
     }
 }
