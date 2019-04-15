@@ -29,3 +29,5 @@ Route::get('admin/create_complain_type', 'ComplainTypeController@create');
 Route::post('admin/store_complain_type', 'ComplainTypeController@store_complain_type');
 Route::get('admin/list_complain_type', 'ComplainTypeController@complain_list');
 Route::get('admin/get_complain_type_edit_data', 'ComplainTypeController@get_complain_type_edit_data');
+Route::post('admin/update_complain_type_data', 'ComplainTypeController@update_complain_type_data');
+Route::get('admin/delete_complain_type_data', 'ComplainTypeController@delete_complain_type_data');

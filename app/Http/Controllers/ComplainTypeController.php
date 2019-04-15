@@ -66,6 +66,7 @@ class ComplainTypeController extends Controller{
             'formAction'    => '',
             'redirecturl'   => '',
             'getEditDayaUrl'=> url('admin/get_complain_type_edit_data'),
+            'delUrl'=> url('admin/delete_complain_type_data'),
         ];
         $list   =   DB::table('complain_type')->get();
         return View('backend.complain_type.list', compact('list', 'pageData'));
@@ -96,4 +97,63 @@ class ComplainTypeController extends Controller{
         
         echo json_encode($feedbackData);
     }
+    
+    public function update_complain_type_data(Request $request){
+        $status     =   'success';
+        $data       =   '';
+        $message    =   '';
+        // check the duplicate value:
+        
+        $whereParam  =   [
+            'name'  =>  $request->name
+        ];
+        
+        $checkResult    =   DB::table('complain_type')->where($whereParam)->where('id', '!=', $request->complain_type_id)->first();
+        
+        if(isset($checkResult) && !empty($checkResult)){
+            $status     =   'duplicate_error';
+            $message    =   'Duplicate Data Found';
+            $feedbackData   =   [
+                'status'  => $status,
+                'data'    => $data,
+                'message' => $message
+            ];
+
+            echo json_encode($feedbackData);
+            exit;
+        }  
+        
+        $updarResult    =   DB::table('complain_type')->where('id', $request->complain_type_id)->update($whereParam);
+        if($updarResult){
+            $status     =   'success';
+            $message    =   'data have been successfully updated.';
+            $feedbackData   =   [
+                'status'  => $status,
+                'data'    => $data,
+                'message' => $message
+            ];
+
+            echo json_encode($feedbackData);
+            exit;
+        }
+        
+    }
+    public function delete_complain_type_data(Request $request) {
+        $status     =   'success';
+        $data       =   '';
+        $message    =   '';
+        $deleteResult = DB::table('complain_type')->where('id', $request->id)->delete();
+        if ($deleteResult) {
+            $status = 'success';
+            $message = 'data have been successfully deleted.';
+            $feedbackData = [
+                'status' => $status,
+                'data' => $data,
+                'message' => $message
+            ];
+
+            echo json_encode($feedbackData);
+        }
+    }
+
 }

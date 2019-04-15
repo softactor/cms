@@ -16,19 +16,20 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="listDatas">
                     <?php
-                    $url    =   $pageData['getEditDayaUrl'];
+                    $url        =   $pageData['getEditDayaUrl'];
+                    $delurl     =   $pageData['delUrl'];
                     if (!$list->isEmpty()) {
                         $count = 1;
                         foreach ($list as $listData) {
                             ?>  
-                            <tr>
+                            <tr id="table_row_id_{{$listData->id}}">
                                 <td>{{ $count++ }}</td>
                                 <td>{{ $listData->name }}</td>
                                 <td>
                     <button type="button" class='btn btn-sm btn-primary' onclick="OpenComplainTypeEditModal('{{ $url }}', '{{ $listData->id }}');">Edit</button>
-                                    <button type="button" class='btn btn-sm btn-danger'>Delete</button>
+                    <button type="button" class='btn btn-sm btn-danger' onclick="confirmDeleteOp('{{$delurl}}', '{{ $listData->id }}');">Delete</button>
                                 </td>
                             </tr>      
                             <?php
