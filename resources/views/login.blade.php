@@ -95,18 +95,21 @@
                     <div class="account-wall">
                         <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                              alt="">
-                        <form class="form-signin">
-                            <input type="text" class="form-control" placeholder="Email" required autofocus>
-                            <input type="password" class="form-control" placeholder="Password" required>
+                        <form class="form-signin" method="POST" action="{{ route('login') }}">
+                        @csrf
+                            <input type="text" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus>
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                            <input type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                Sign in</button>
-                            <label class="checkbox pull-left">
-                                <input type="checkbox" value="remember-me">
-                                Remember me
-                            </label>
+                                Sign in
+                            </button>
                         </form>
                     </div>
-                    <a href="#" class="text-center new-account">Create an account </a>
+                    <a href="{{ route('register') }}" class="text-center new-account">Create an account </a>
                 </div>
             </div>
         </div>

@@ -21,8 +21,25 @@
     </head>
 
     <body id="page-top">
+        @include('cms.top_menu')
+        <div id="wrapper">
+            <!-- Sidebar -->
+            @include('cms.left_menu')
+            <div id="content-wrapper">
 
-        @yield('content')
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
+                <!-- Sticky Footer -->
+                <footer class="sticky-footer">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright © Your Website 2019</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>        
 
         <!-- Bootstrap core JavaScript-->
         <script src="{{ asset('cmsp/vendor/jquery/jquery.min.js')}}"></script>
@@ -46,3 +63,5 @@
     </body>
 
 </html>
+@include('cms.modal.logout')
+@include('backend.modal.complainTypeEditModal')

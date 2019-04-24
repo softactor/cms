@@ -1,6 +1,13 @@
-@extends('backend.layouts.app')
-@section('title', 'Complain Type')
+@extends('cms.layouts.app')
 @section('content')
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Overview</li>
+</ol>
 
 <h2>{{ $pageData['pageTitle'] }}</h2>
 <div class='pull-right'><a href="{{ url('admin/list_complain_type') }}">List</a></div>

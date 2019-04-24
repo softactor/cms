@@ -1,7 +1,13 @@
-@extends('backend.layouts.app')
-@section('title', 'Complain Type List')
+@extends('cms.layouts.app')
 @section('content')
-<div class='container'>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Overview</li>
+</ol>
+
     <div class='row'>
         <div class='col-md-12'>
             <h2>{{ $pageData['pageTitle'] }}</h2>
@@ -44,6 +50,4 @@
             </table>
         </div>
     </div>
-</div>
 @endsection
-@include('backend.modal.complainTypeEditModal')
