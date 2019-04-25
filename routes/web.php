@@ -1,15 +1,15 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
 
 Route::get('/', function () {
     return view('login');
@@ -34,3 +34,41 @@ Route::get('admin/get_complain_type_edit_data', 'ComplainTypeController@get_comp
 Route::post('admin/update_complain_type_data', 'ComplainTypeController@update_complain_type_data');
 Route::get('admin/delete_complain_type_data', 'ComplainTypeController@delete_complain_type_data');
 
+// Compline Feedback route
+
+Route::get('admin/feedback_list', 'FeedbackController@feedback_list')->name('admin.feedback.list');
+Route::get('admin/feedback_create', 'FeedbackController@feedback_create')->name('admin.feedback.create');
+Route::get('admin/feedback_edit', 'FeedbackController@feedback_edit');
+Route::post('admin/feedback_store', 'FeedbackController@feedback_store');
+Route::get('admin/feedback_update', 'FeedbackController@feedback_update');
+Route::get('admin/feedback_delete', 'FeedbackController@feedback_delete');
+
+
+// Complain Details route
+
+Route::get('admin/complain_details_list', 'ComplainDetailsController@complain_details_list')->name('admin.complain_details.list');
+Route::get('admin/complain_details_create', 'ComplainDetailsController@complain_details_create')->name('admin.complain_details.create');
+Route::get('admin/complain_details_edit', 'ComplainDetailsController@complain_details_edit');
+Route::post('admin/complain_details_store', 'ComplainDetailsController@complain_details_store');
+Route::get('admin/complain_details_update', 'ComplainDetailsController@complain_details_update');
+Route::get('admin/complain_details_delete', 'ComplainDetailsController@complain_details_delete');
+
+
+
+
+// user routeF
+
+Route::get('admin/list_users', 'UserController@list_users')->name('admin.user.list');
+Route::get('admin/get_User_list_data', 'ComplainTypeController@get_User_list_data');
+Route::post('admin/update_user_list_data', 'ComplainTypeController@update_user_list_data');
+Route::get('admin/delete_user_list_data', 'ComplainTypeController@delete_user_list_data');
+
+
+//  DEPARTMENT 
+
+Route::get('admin/department_list', 'DepartmentController@department_list')->name('admin.departement.list');
+Route::get('admin/department_create', 'DepartmentController@department_create')->name('admin.departement.create');
+Route::get('admin/department_edit', 'DepartmentController@department_edit');
+Route::post('admin/department_store', 'DepartmentController@department_store');
+Route::get('admin/department_update', 'DepartmentController@department_update');
+Route::get('admin/department_delete', 'DepartmentController@department_delete');

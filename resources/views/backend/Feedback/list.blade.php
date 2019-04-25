@@ -7,35 +7,36 @@
     </li>
     <li class="breadcrumb-item active">Overview</li>
 </ol>
-
+<div class="container">
     <div class='row'>
         <div class='col-md-12'>
             <h2>{{ $pageData['pageTitle'] }}</h2>
+            <div class='float-right'><a class="btn btn-primary" style="display: inline-block; margin-bottom: 25px;" href="{{ url('admin/feedback_create') }}">Create Feedback</a></div>
+            <!--     List Table starts here    -->
             <table class="table">
                 <thead>
                     <tr>
-                        <th colspan="3" class="right"><a href="{{ url('admin/create_complain_type') }}">Create</a></th>
-                    </tr>
-                    <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Action</th>
+                        <th width = "5%">Complain ID</th>
+                        <th width = "40%">Engineer Feedback</th>
+                        <th width = "40%">Customer Feedback</th>
+                        <th width = "15%">Action</th>
                     </tr>
                 </thead>
-                <tbody id="listDatas">
+                <tbody id="Dep-list">
                     <?php
-                    $url        =   $pageData['getEditDayaUrl'];
-                    $delurl     =   $pageData['delUrl'];
                     if (!$list->isEmpty()) {
                         $count = 1;
                         foreach ($list as $listData) {
                             ?>  
-                            <tr id="table_row_id_{{$listData->id}}">
+                            <tr>
                                 <td>{{ $count++ }}</td>
-                                <td>{{ $listData->name }}</td>
+                                <td>{{ $listData->complian_id }}</td>
+                                <td>{{ $listData->eng_feedbak }}</td>
+                                <td>{{ $listData->customer_feedback }}</td>
                                 <td>
-                    <button type="button" class='btn btn-sm btn-primary' onclick="OpenComplainTypeEditModal('{{ $url }}', '{{ $listData->id }}');">Edit</button>
-                    <button type="button" class='btn btn-sm btn-danger' onclick="confirmDeleteOp('{{$delurl}}', '{{ $listData->id }}');">Delete</button>
+                                    <button type="button" class='btn btn-sm btn-primary' >Edit</button>
+                                    <button type="button" class='btn btn-sm btn-danger'>Delete</button>
                                 </td>
                             </tr>      
                             <?php
@@ -50,5 +51,6 @@
             </table>
         </div>
     </div>
+</div>
 @endsection
-@include('backend.modal.complainTypeEditModal')
+

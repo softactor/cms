@@ -17,6 +17,8 @@
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('cmsp/css/sb-admin.css')}}" rel="stylesheet">
+        
+        <link href="{{ asset('cmsp/css/sweetalert.css') }}" rel="stylesheet">
 
     </head>
 
@@ -59,6 +61,10 @@
         <!-- Demo scripts for this page-->
         <script src="{{ asset('cmsp/js/demo/datatables-demo.js')}}"></script>
         <script src="{{ asset('cmsp/js/demo/chart-area-demo.js')}}"></script>
+        
+         <script src="{{ asset('cmsp/js/sweetalert.min.js') }}" defer></script>
+         <script src="{{ asset('cmsp/js/user.js') }}" defer></script>
+        <script src="{{ asset('cmsp/js/cmsp.js') }}" defer></script>
 
     </body>
 
