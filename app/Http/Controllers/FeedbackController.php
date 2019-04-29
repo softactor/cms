@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Department;
+use App\Model\cms\Complain_feedback;
 
 class FeedbackController extends Controller {
 
@@ -40,13 +41,13 @@ class FeedbackController extends Controller {
      */
     public function feedback_store(Request $request) {
         $rules = [
-            'complian_id' => 'required',
-            'eng_feedbak' => 'required',
+            'complian_type_id'  => 'required',
+            'eng_feedbak'       => 'required',
             'customer_feedback' => 'required'
         ];
 
         $message = [
-            'complian_id.required' => 'Please enter the Complain Id Name field.',
+            'complian_type_id.required' => 'Please enter the Complain Type Id Name field.',
             'eng_feedbak.required' => 'Please enter the Engineer Name  field.',
             'customer_feedback.required' => 'Please enter the Customer Feedback Deatils field.'
         ];
@@ -59,27 +60,12 @@ class FeedbackController extends Controller {
                             ->with('error', 'Validation fail!')
                             ->withInput();
         }
-
-        // check the duplicate value:
-
-        $whereParam = [
-            'complian_id' => $request->complian_id
-        ];
-
-        $checkResult = DB::table('complain_feedback')->where($whereParam)->first();
-
-        if (isset($checkResult) && !empty($checkResult)) {
-            return redirect('admin/feedback_create')
-                            ->with('error', 'Duplicate Data Found')
-                            ->withInput();
-        }
-
-        $insertData = [
-        'complian_id'           => $request->complian_id,
-        'eng_feedbak'           => $request->eng_feedbak,
-        'customer_feedback'     => $request->customer_feedback
-        ];
-        $insertResult = DB::table('complain_feedback')->insert($insertData);
+        
+        $Complain_feedback  =   new Complain_feedback;
+        $Complain_feedback->complian_type_id      = $request->complian_type_id;
+        $Complain_feedback->eng_feedbak      = $request->eng_feedbak;
+        $Complain_feedback->customer_feedback      = $request->customer_feedback;
+        $Complain_feedback->save();
         return redirect('admin/feedback_create')
                         ->with('success', 'Data saved');
     }
@@ -94,11 +80,11 @@ class FeedbackController extends Controller {
 
         $pageTitle = '';
         $pageData = [
-            'pageTitle' => 'Departments List',
-            'formAction' => '',
-            'redirecturl' => ''
+            'pageTitle'     => 'Feedback List',
+            'delUrl'        => url('admin/feedback_delete'),
+            'redirecturl'   => ''
         ];
-        $list = DB::table('complain_feedback')->get();
+        $list = Complain_feedback::get();
         return View('backend.Feedback.list', compact('list', 'pageData'));
     }
 
@@ -108,8 +94,15 @@ class FeedbackController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
-        //
+    public function feedback_edit($id) {
+        $pageTitle = '';
+        $pageData = [
+            'pageTitle' => 'Feedback Edit',
+            'formAction' => url('admin/feedback_update'),
+            'redirecturl' => url('admin/feedback_list'),
+        ];
+        $editData   =   DB::table('complain_feedback')->where('id', $id)->first();
+        return View('backend.Feedback.edit', compact('editData', 'pageData'));
     }
 
     /**
@@ -119,8 +112,20 @@ class FeedbackController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        //
+    public function feedback_update(Request $request) {
+        $all    =   $request->all();
+        $where  =   [
+            'id'=>$request->update_id
+        ];
+        $updateData =   [
+            'complian_type_id'  =>$request->complian_type_id,
+            'eng_feedbak'       =>$request->eng_feedbak,
+            'customer_feedback' =>$request->customer_feedback
+        ];
+        
+        DB::table('complain_feedback')->where($where)->update($updateData);
+        return redirect('admin/feedback_list')
+                        ->with('success', 'Data updated');
     }
 
     /**
@@ -129,8 +134,22 @@ class FeedbackController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        //
+    public function feedback_delete(Request $request) {
+        $status = 'success';
+        $data = '';
+        $message = '';
+        $deleteResult = DB::table('complain_feedback')->where('id', $request->id)->delete();
+        if ($deleteResult) {
+            $status = 'success';
+            $message = 'data have been successfully deleted.';
+            $feedbackData = [
+                'status' => $status,
+                'data' => $data,
+                'message' => $message
+            ];
+
+            echo json_encode($feedbackData);
+        }
     }
 
 }

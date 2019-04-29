@@ -51,7 +51,7 @@
         <script src="{{ asset('cmsp/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
         <!-- Page level plugin JavaScript-->
-        <script src="{{ asset('cmsp/vendor/chart.js/Chart.min.js')}}"></script>
+        <!--<script src="{{ asset('cmsp/vendor/chart.js/Chart.min.js')}}"></script>-->
         <script src="{{ asset('cmsp/vendor/datatables/jquery.dataTables.js')}}"></script>
         <script src="{{ asset('cmsp/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
 
@@ -60,7 +60,7 @@
 
         <!-- Demo scripts for this page-->
         <script src="{{ asset('cmsp/js/demo/datatables-demo.js')}}"></script>
-        <script src="{{ asset('cmsp/js/demo/chart-area-demo.js')}}"></script>
+        <!--<script src="{{ asset('cmsp/js/demo/chart-area-demo.js')}}"></script>-->
         
          <script src="{{ asset('cmsp/js/sweetalert.min.js') }}" defer></script>
          <script src="{{ asset('cmsp/js/user.js') }}" defer></script>
