@@ -34,7 +34,7 @@
                     $complainTypeData   = get_tabledata_by_table('complain_type');
                     if(!$complainTypeData->isEmpty()){
                         foreach($complainTypeData as $data){ ?>
-                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                <option value="{{ $data->id }}" <?php if(isset($editData->complian_type_id) && $editData->complian_type_id==$data->id){ echo 'selected'; } ?>>{{ $data->name }}</option>
                     <?php } } ?>
             </select>
 <?php
@@ -43,21 +43,22 @@ if ($errors->has('complian_id')) {
 }
 ?>
             <label for="name">Engineer Feedback:</label>
-            <textarea type="text" class="form-control" id="name" rows="3"  name="eng_feedbak" value="{{ old('eng_feedbak') }}"></textarea>
+            <textarea type="text" class="form-control" id="name" rows="3"  name="eng_feedbak"><?php if(isset($editData->eng_feedbak)){ echo $editData->eng_feedbak; } ?></textarea>
 <?php
 if ($errors->has('eng_feedbak')) {
     echo $errors->first('eng_feedbak');
 }
 ?>
             <label for="name">Customer Feedback:</label>
-            <textarea type="text" class="form-control" id="name" rows="3"  name="customer_feedback" value="{{ old('customer_feedback') }}"></textarea>
+            <textarea type="text" class="form-control" id="name" rows="3"  name="customer_feedback"><?php if(isset($editData->eng_feedbak)){ echo $editData->customer_feedback; } ?></textarea>
 <?php
 if ($errors->has('customer_feedback')) {
     echo $errors->first('customer_feedback');
 }
 ?>
-        </div>                
-        <button type="submit" class="btn btn-primary" style="display: inline-block; margin-bottom: 25px;">Create Feedback</button>
+        </div> 
+        <input type="hidden" name="update_id" value="{{$editData->id}}">
+        <button type="submit" class="btn btn-primary" style="display: inline-block; margin-bottom: 25px;">Update Feedback</button>
     </form>
 </div>
 

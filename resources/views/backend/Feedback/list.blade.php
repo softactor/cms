@@ -18,25 +18,30 @@
                     <tr>
                         <th>#</th>
                         <th width = "5%">Complain ID</th>
-                        <th width = "40%">Engineer Feedback</th>
-                        
+                        <th width = "25%">Complain Type</th>
+                        <th width = "30%">Engineer Feedback</th>
+                        <th width = "30%">Customer Feedback</th>
                         <th width = "15%">Action</th>
                     </tr>
                 </thead>
                 <tbody id="Dep-list">
                     <?php
+                    $delurl     =   $pageData['delUrl'];
                     if (!$list->isEmpty()) {
                         $count = 1;
                         foreach ($list as $listData) {
                             ?>  
-                            <tr>
+                            <tr id="table_row_id_{{ $listData->id }}">
                                 <td>{{ $count++ }}</td>
                                 <td>{{ $listData->complain_id }}</td>
                                 <td>{{ $listData->user_id }}</td>
-                               
+                                <td>{{ get_tablerow_by_id('complain_type', $listData->complian_type_id)->name }}</td>
+                                <td>{{ $listData->eng_feedbak }}</td>
+                                <td>{{ $listData->customer_feedback }}</td>
                                 <td>
-                                    <button type="button" class='btn btn-sm btn-primary' >Edit</button>
-                                    <button type="button" class='btn btn-sm btn-danger'>Delete</button>
+                                    <?php $editUrl    = 'admin/feedback_edit/'.$listData->id ?>   
+                                    <a href="{{ url($editUrl) }}" type="button" class='btn btn-sm btn-primary' >Edit</a>
+                                    <button type="button" class='btn btn-sm btn-danger' onclick="confirmDeleteOp('{{$delurl}}', '{{ $listData->id }}');">Delete</button>
                                 </td>
                             </tr>      
                             <?php

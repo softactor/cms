@@ -38,9 +38,9 @@ Route::get('admin/delete_complain_type_data', 'ComplainTypeController@delete_com
 
 Route::get('admin/feedback_list', 'FeedbackController@feedback_list')->name('admin.feedback.list');
 Route::get('admin/feedback_create', 'FeedbackController@feedback_create')->name('admin.feedback.create');
-Route::get('admin/feedback_edit', 'FeedbackController@feedback_edit');
+Route::get('admin/feedback_edit/{id}', 'FeedbackController@feedback_edit');
 Route::post('admin/feedback_store', 'FeedbackController@feedback_store');
-Route::get('admin/feedback_update', 'FeedbackController@feedback_update');
+Route::post('admin/feedback_update', 'FeedbackController@feedback_update');
 Route::get('admin/feedback_delete', 'FeedbackController@feedback_delete');
 
 
