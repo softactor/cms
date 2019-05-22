@@ -71,4 +71,4 @@ Route::get('admin/department_create', 'DepartmentController@department_create')-
 Route::get('admin/department_edit', 'DepartmentController@department_edit');
 Route::post('admin/department_store', 'DepartmentController@department_store');
 Route::get('admin/department_update', 'DepartmentController@department_update');
-Route::get('admin/department_delete', 'DepartmentController@department_delete');
+Route::get('admin/delete_department_data', 'DepartmentController@delete_department_data');

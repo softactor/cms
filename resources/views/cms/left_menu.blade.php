@@ -30,20 +30,20 @@
         <a class="nav-link" href="{{ route('admin.complain_type.create') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Create Complain Type</span></a>
+    </li>    
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.departement.create') }}">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Departement Create</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.complain.create') }}">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Complain</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.feedback.create') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Complain Feedback</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.complain_details.create') }}">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Departement Create</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
     </li>
 </ul>

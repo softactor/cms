@@ -29,10 +29,10 @@
     @csrf
     <div class="form-group">
         <label for="name">Department Name:</label>
-        <input type="text" class="form-control"   name="dep_name" value="{{ old('dep_name') }}">
+        <input type="text" class="form-control"   name="name" value="{{ old('name') }}">
         <br>
         <label for="name">Department Details:</label>
-        <textarea type="text" class="form-control"  name="dep_details" rows="3" value="{{ old('dep_details') }}"></textarea>
+        <textarea type="text" class="form-control"  name="details" rows="3">{{ old('details') }}</textarea>
     </div>                
     <button type="submit" class="btn btn-primary">Create</button>
 </form>

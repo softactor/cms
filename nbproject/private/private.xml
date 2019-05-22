@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/backend/modal/userListEdit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/cms/dashboard.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/backend/users/User.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/cms/layouts/app.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/cms/left_menu.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/app/Http/Controllers/ComplainTypeController.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/backend/partial/user_list.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/public/cmsp/js/cmsp.js</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/backend/complain_type/list.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/public/cmsp/js/user.js</file>
-            <file>file:/C:/xampp/htdocs/cms/app/Http/Controllers/UserController.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/backend/layouts/app.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Model\cms\Department;
 use Illuminate\Support\Facades\DB;
-use App\Department;
 
 class DepartmentController extends Controller {
 
@@ -41,13 +41,13 @@ class DepartmentController extends Controller {
      */
     public function department_store(Request $request) {
         $rules = [
-            'dep_name'      => 'required',
-            'dep_details'   => 'required'
+            'name'      => 'required',
+            'details'   => 'required'
         ];
 
         $message = [
-            'dep_name.required' => 'Please enter the Departement Name field.',
-            'dep_details.required' => 'Please enter the Departement Deatils field.'
+            'name.required' => 'Please enter the Departement Name field.',
+            'details.required' => 'Please enter the Departement Deatils field.'
         ];
 
         $validation = Validator::make($request->all(), $rules, $message);
@@ -62,7 +62,7 @@ class DepartmentController extends Controller {
         // check the duplicate value:
 
         $whereParam = [
-            'dep_name'     => $request->dep_name
+            'name'     => $request->dep_name
         ];
 
         $checkResult = DB::table('departments')->where($whereParam)->first();
@@ -72,13 +72,11 @@ class DepartmentController extends Controller {
                             ->with('error', 'Duplicate Data Found')
                             ->withInput();
         }
-
-        $insertData = [
-            'dep_name'     => $request->dep_name,
-            'dep_details'  => $request->dep_details
-            
-        ];
-        $insertResult = DB::table('departments')->insert($insertData);
+        
+        $department         =   new Department;
+        $department->name   =  $request->name;   
+        $department->details   =  $request->details;   
+        $department->save();
         return redirect('admin/department_create')
                         ->with('success', 'Data saved');
     }
@@ -93,11 +91,13 @@ class DepartmentController extends Controller {
         
         $pageTitle = '';
         $pageData = [
-            'pageTitle' => 'Departments List',
-            'formAction' => '',
-            'redirecturl' => ''
+            'pageTitle'         => 'Departments List',
+            'formAction'        => '',
+            'redirecturl'       => '',
+            'getEditDayaUrl'    => url('admin/get_complain_type_edit_data'),
+            'delUrl'            => url('admin/delete_department_data'),
         ];
-        $list = DB::table('departments')->get();
+        $list = Department::get();
         return View('backend.Departements.list', compact('list', 'pageData'));
     }
  
@@ -128,8 +128,22 @@ class DepartmentController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        //
+    public function delete_department_data(Request $request) {
+        $status = 'success';
+        $data = '';
+        $message = '';
+        $deleteResult = DB::table('departments')->where('id', $request->id)->delete();
+        if ($deleteResult) {
+            $status = 'success';
+            $message = 'data have been successfully deleted.';
+            $feedbackData = [
+                'status' => $status,
+                'data' => $data,
+                'message' => $message
+            ];
+
+            echo json_encode($feedbackData);
+        }
     }
 
 }
