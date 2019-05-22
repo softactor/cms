@@ -74,6 +74,9 @@ Route::get('admin/department_create', 'DepartmentController@department_create')-
 Route::get('admin/department_edit', 'DepartmentController@department_edit');
 Route::post('admin/department_store', 'DepartmentController@department_store');
 Route::get('admin/department_update', 'DepartmentController@department_update');
+<<<<<<< HEAD
+Route::get('admin/delete_department_data', 'DepartmentController@delete_department_data');
+=======
 Route::get('admin/department_delete', 'DepartmentController@department_delete');
 
 
@@ -90,3 +93,4 @@ Route::get('engineer/dashboard','EngineerController@index');
 Route::post('engineer/accepted','EngineerController@Accepted_Button');
 
 Route::get('admin/executive/delete_complain_data', 'ComplainDetailsController@delete_complain_data');
+>>>>>>> 86940859d2627c92754b58755e1a28b85b7adc7e
