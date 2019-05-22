@@ -101,6 +101,8 @@ class FeedbackController extends Controller {
         $list = DB::table('complain_feedback')->get();
         return View('backend.Feedback.list', compact('list', 'pageData'));
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\cms\backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -12,6 +13,7 @@ class DashboardController extends Controller
       $this->middleware('auth');
     }
     public function index(){
+      
         return View('cms.dashboard');
     }
 }

@@ -19,7 +19,7 @@
                         <th>#</th>
                         <th width = "5%">Complain ID</th>
                         <th width = "40%">Engineer Feedback</th>
-                        <th width = "40%">Customer Feedback</th>
+                        
                         <th width = "15%">Action</th>
                     </tr>
                 </thead>
@@ -31,9 +31,9 @@
                             ?>  
                             <tr>
                                 <td>{{ $count++ }}</td>
-                                <td>{{ $listData->complian_id }}</td>
-                                <td>{{ $listData->eng_feedbak }}</td>
-                                <td>{{ $listData->customer_feedback }}</td>
+                                <td>{{ $listData->complain_id }}</td>
+                                <td>{{ $listData->user_id }}</td>
+                               
                                 <td>
                                     <button type="button" class='btn btn-sm btn-primary' >Edit</button>
                                     <button type="button" class='btn btn-sm btn-danger'>Delete</button>

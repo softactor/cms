@@ -29,6 +29,7 @@
         <div class="form-group">
             <label for="name">Complain ID:</label>
             <input type="text" class="form-control"  name="complian_id" value="{{ old('complian_id') }}">
+            
 <?php
 if ($errors->has('complian_id')) {
     echo $errors->first('complian_id');
