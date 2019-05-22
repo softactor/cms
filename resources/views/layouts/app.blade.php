@@ -78,6 +78,7 @@
     @section('project_js_section')
     <script src="{{ asset('cmsp/js/jquery-3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('cmsp/js/bootstrap.min.js') }}" defer></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     @show
 </body>
 </html>

@@ -14,5 +14,6 @@
         <script src="{{ asset('cmsp/js/sweetalert.min.js') }}" defer></script>
         <script src="{{ asset('cmsp/js/cmsp.js') }}" defer></script>
         <script src="{{ asset('cmsp/js/user.js') }}" defer></script>
+
     </body>
 </html>

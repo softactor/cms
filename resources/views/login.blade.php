@@ -8,12 +8,14 @@
         <meta name="author" content="">
         <title>{{ config('app.name') }}</title>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+         
         <style type="text/css">
             .form-signin
             {
                 max-width: 330px;
                 padding: 15px;
                 margin: 0 auto;
+                 
             }
             .form-signin .form-signin-heading, .form-signin .checkbox
             {
@@ -21,59 +23,68 @@
             }
             .form-signin .checkbox
             {
-                font-weight: normal;
+                font-weight: bold;
             }
             .form-signin .form-control
             {
                 position: relative;
                 font-size: 16px;
+                color: #fff;
                 height: auto;
                 padding: 10px;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid #000000;
+                
             }
             .form-signin .form-control:focus
             {
-                z-index: 2;
+                z-index: 1;
             }
             .form-signin input[type="text"]
             {
-                margin-bottom: -1px;
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
+                margin-bottom: 20px;
+               background: none ;
             }
             .form-signin input[type="password"]
             {
-                margin-bottom: 10px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
+                margin-bottom: 50px;
+               
+                background: none ;
             }
+         .form-signin input::placeholder {
+  color: #fff;
+  font-size: 1.2em;
+  
+}
             .account-wall
             {
-                margin-top: 20px;
+                margin-top: 0;
                 padding: 40px 0px 20px 0px;
-                background-color: #f7f7f7;
+                background-color: transparent;
                 -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
                 -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                box-shadow: 10px 10px 60px;
+
             }
             .login-title
             {
-                color: #555;
-                font-size: 18px;
+                margin-top: 10%;
+                color: #000;
+                font-size: 25px;
                 font-weight: 400;
+                font-family: Times, serif; 
                 display: block;
             }
             .profile-img
             {
-                width: 96px;
-                height: 96px;
+                width: 150px;
+                height: 150px;
                 margin: 0 auto 10px;
                 display: block;
                 -moz-border-radius: 50%;
                 -webkit-border-radius: 50%;
                 border-radius: 50%;
+                user-drag: none;
             }
             .need-help
             {
@@ -87,14 +98,15 @@
         </style>
     </head>
 
-    <body class="bg-dark">
+    <body class="bg-dark" style="background-image:url(public/cmsp/images/back.jpg); background-repeat: no-repeat;
+  background-size: cover; ">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
-                    <h1 class="text-center login-title">Sign in to continue to Bootsnipp</h1>
+                    <h1 class="text-center login-title"><strong>Sign in to continue</strong></h1>
                     <div class="account-wall">
-                        <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                             alt="">
+                        <img class="profile-img" src="{{asset('public/cmsp/images/cms.png')}}"
+                             alt="" draggable="false">
                         <form class="form-signin" method="POST" action="{{ route('login') }}">
                         @csrf
                             <input type="text" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus>
@@ -109,7 +121,7 @@
                             </button>
                         </form>
                     </div>
-                    <a href="{{ route('register') }}" class="text-center new-account">Create an account </a>
+                    <a href="{{ route('register') }}" class="text-center new-account"> </a>
                 </div>
             </div>
         </div>

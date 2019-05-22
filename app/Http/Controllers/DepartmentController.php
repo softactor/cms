@@ -21,7 +21,7 @@ class DepartmentController extends Controller {
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responsell
      */
     public function department_create() {
         $pageTitle = 'Create Departement';

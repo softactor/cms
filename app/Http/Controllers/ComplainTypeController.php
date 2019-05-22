@@ -44,7 +44,7 @@ class ComplainTypeController extends Controller {
         // check the duplicate value:
 
         $whereParam = [
-            'name' => $request->name
+            'complain_type_name' => $request->name
         ];
 
         $checkResult = DB::table('complain_type')->where($whereParam)->first();
@@ -56,7 +56,7 @@ class ComplainTypeController extends Controller {
         }
 
         $insertData = [
-            'name' => $request->name
+            'complain_type_name' => $request->name
         ];
         $insertResult = DB::table('complain_type')->insert($insertData);
         return redirect('admin/create_complain_type')
@@ -75,6 +75,7 @@ class ComplainTypeController extends Controller {
         $list = DB::table('complain_type')->get();
         return View('backend.complain_type.list', compact('list', 'pageData'));
     }
+     
 
     public function get_complain_type_edit_data(Request $request) {
         // default param
@@ -109,10 +110,10 @@ class ComplainTypeController extends Controller {
         // check the duplicate value:
 
         $whereParam = [
-            'name' => $request->name
+            'complain_type_name' => $request->name
         ];
 
-        $checkResult = DB::table('complain_type')->where($whereParam)->where('id', '!=', $request->complain_type_id)->first();
+        $checkResult = DB::table('complain_type')->where($whereParam)->where('id', '!=', $request->id)->first();
 
         if (isset($checkResult) && !empty($checkResult)) {
             $status = 'duplicate_error';

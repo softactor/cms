@@ -32,7 +32,7 @@
                             ?>  
                             <tr id="table_row_id_{{$listData->id}}">
                                 <td>{{ $count++ }}</td>
-                                <td>{{ $listData->name }}</td>
+                                <td>{{ $listData->complain_type_name }}</td>
                                 <td>
                     <button type="button" class='btn btn-sm btn-primary' onclick="OpenComplainTypeEditModal('{{ $url }}', '{{ $listData->id }}');">Edit</button>
                     <button type="button" class='btn btn-sm btn-danger' onclick="confirmDeleteOp('{{$delurl}}', '{{ $listData->id }}');">Delete</button>
