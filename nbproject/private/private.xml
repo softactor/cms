@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/backend/engineer/dashboard.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/app/Http/Controllers/ComplainTypeController.php</file>
-            <file>file:/C:/xampp/htdocs/cms/app/Http/Controllers/ComplainDetailsController.php</file>
-            <file>file:/C:/xampp/htdocs/cms/public/cmsp/js/cmsp.js</file>
-            <file>file:/C:/xampp/htdocs/cms/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/cms/app/Http/Controllers/ExecutiveController.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/cms/modal/complains.blade.php</file>
-            <file>file:/C:/xampp/htdocs/cms/app/Http/Controllers/EngineerController.php</file>
-            <file>file:/C:/xampp/htdocs/cms/resources/views/executive/complains.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

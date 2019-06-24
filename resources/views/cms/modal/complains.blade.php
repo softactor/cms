@@ -83,12 +83,16 @@
 
     </div>
 </div>
-  <script>
+@section('dynamic_script_config_section')    
+    @parent
+<script type="text/javascript">
   $( function() {
     $( "#datepicker" ).datepicker({
          dateFormat: "yy-mm-dd"
     });
  
   } );
-  </script>
+</script>
+@endsection
+  
  

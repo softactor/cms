@@ -49,6 +49,7 @@ Route::get('admin/feedback_delete', 'FeedbackController@feedback_delete');
 Route::get('admin/complain_details_list', 'ComplainDetailsController@complain_details_list')->name('admin.complain_details.list');
 
 Route::get('admin/complain_details_create', 'ComplainDetailsController@complain_details_create')->name('admin.complain_details.create');
+Route::get('admin/complain_create', 'ComplainDetailsController@complain_details_create')->name('admin.complain.create');
 Route::get('admin/complain_details_edit', 'ComplainDetailsController@complain_details_edit');
 Route::post('admin/complain_details_store', 'ComplainDetailsController@complain_details_store');
 Route::get('admin/complain_details_update', 'ComplainDetailsController@complain_details_update');
@@ -74,9 +75,7 @@ Route::get('admin/department_create', 'DepartmentController@department_create')-
 Route::get('admin/department_edit', 'DepartmentController@department_edit');
 Route::post('admin/department_store', 'DepartmentController@department_store');
 Route::get('admin/department_update', 'DepartmentController@department_update');
-<<<<<<< HEAD
 Route::get('admin/delete_department_data', 'DepartmentController@delete_department_data');
-=======
 Route::get('admin/department_delete', 'DepartmentController@department_delete');
 
 
@@ -93,4 +92,6 @@ Route::get('engineer/dashboard','EngineerController@index');
 Route::post('engineer/accepted','EngineerController@Accepted_Button');
 
 Route::get('admin/executive/delete_complain_data', 'ComplainDetailsController@delete_complain_data');
->>>>>>> 86940859d2627c92754b58755e1a28b85b7adc7e
+
+// chart controller:
+Route::get('admin/chart', 'ChartController@index')->name('admin.chart.list');

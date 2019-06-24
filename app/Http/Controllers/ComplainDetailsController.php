@@ -35,6 +35,18 @@ class ComplainDetailsController extends Controller {
       $id = \Auth::user()->id;
         return View('backend.ComplainDetails.create', compact('pageData','list','id'));
     }
+    public function complain_create() {
+        $pageTitle = '';
+        $pageData = [
+            'pageTitle' => 'Create Complain',
+            'formAction' => url('admin/complain_details_store'),
+            'redirecturl' => url('admin/complain_details_list'),
+        ];
+        
+      $list=  DB::table('complain_type')->get();
+      $id = \Auth::user()->id;
+        return View('backend.ComplainDetails.create', compact('pageData','list','id'));
+    }
 
     /**
      * Store a newly created resource in storage.

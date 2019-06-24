@@ -43,22 +43,25 @@
                     </div>
                 </footer>
             </div>
-        </div>        
+        </div>       
 
+        
+        @section('dynamic_script_config_section')
         <!-- Bootstrap core JavaScript-->
         <script src="{{ asset('cmsp/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{ asset('cmsp/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- Core plugin JavaScript-->
-        <script src="{{ asset('cmsp/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-        <script src="{{ asset('cmsp/vendor/datatables/jquery.dataTables.js')}}"></script>
-        <script src="{{ asset('cmsp/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('cmsp/js/sb-admin.min.js')}}"></script>
-        <script src="{{ asset('cmsp/js/sweetalert.min.js') }}" defer></script>
+        <script src="{{ asset('cmsp/js/sweetalert.min.js') }}" defer></script>    
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="{{ asset('cmsp/js/user.js') }}" defer></script>
         <script src="{{ asset('cmsp/js/cmsp.js') }}" defer></script>
         <script src="{{ asset('cmsp/js/RedirectToPage.js') }}" defer></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="{{ asset('cmsp/js/firstChartConfig.js') }}"></script>
+        @show
     </body>
 
 </html>
